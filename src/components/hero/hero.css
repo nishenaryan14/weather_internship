@@ -15,7 +15,7 @@
 }
 .heroWrapper {
   width: 75%;
-  height: 80%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,5 +23,6 @@
   gap: 26px;
 }
 .searchHeading {
+  margin-top: 80px;
   font-size: 49px;
 }

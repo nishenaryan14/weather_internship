@@ -1,9 +1,24 @@
-.search {
+.searchParent {
   width: 65%;
-  height: 40px;
+  min-height: 40px;
+  height: max-content;
   background-color: white;
+  overflow: hidden;
+  display: flex;
+  border-radius: 18px;
+  flex-direction: column;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.parentActive {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.search {
+  width: 100%;
+  height: 40px;
+  background-color: white;
+
   min-width: 400px;
   overflow: hidden;
   display: flex;
@@ -33,4 +48,27 @@
 .searchIcon:hover {
   background-color: #000;
   color: #fff;
+}
+
+.recentSearches {
+  background-color: white;
+  display: block;
+  width: 100%;
+  height: max-content;
+  padding: 20px;
+}
+.recentSearches ul {
+  width: 100%;
+  height: 100%;
+}
+.searched {
+  width: 100%;
+  padding: 7px;
+}
+
+li {
+  cursor: pointer;
+  font-size: 18px;
+  color: grey;
+  list-style: none;
 }
