@@ -6,19 +6,18 @@ import { useNavigate } from "react-router-dom";
 export const Search = () => {
   const navigate = useNavigate();
   const ref = useRef();
+  const ref1 = useRef();
   const [recentSearches, setRecentSearches] = useState([]);
   const [isSearchVisible, setIsSearchVisible] = useState(false);
-
+  const [unit, setUnit] = useState("metric");
   useEffect(() => {
     const storedSearches = localStorage.getItem("recentSearches");
     if (storedSearches) {
       setRecentSearches(JSON.parse(storedSearches));
     }
 
-    // Add event listener to handle clicks outside of the search component
     document.addEventListener("click", handleClickOutside);
 
-    // Cleanup function to remove the event listener when component unmounts
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
@@ -32,9 +31,8 @@ export const Search = () => {
 
   const handleSubmit = () => {
     const city = ref.current.value;
-    navigate(`/weather/${city}`);
+    navigate(`/weather/${city}/${unit}`);
 
-    // Update recent searches
     updateRecentSearches(city);
   };
 
@@ -47,36 +45,49 @@ export const Search = () => {
     localStorage.setItem("recentSearches", JSON.stringify(updatedSearches));
   };
 
+  const handleUnitChange = (event) => {
+    setUnit(event.target.value);
+  };
   return (
-    <div className={`searchParent ${isSearchVisible && "parentActive"}`}>
-      <div className="search">
-        <input
-          type="text"
-          ref={ref}
-          className="searchInput"
-          placeholder="Enter City Name to search"
-          onClick={() => setIsSearchVisible(true)}
-        />
-        <button className="searchIcon" onClick={handleSubmit}>
-          <SearchIcon />
-        </button>
-      </div>
-      {isSearchVisible && (
-        <div className="recentSearches">
-          <ul>
-            {recentSearches.map((search, index) => (
-              <li
-                className="searched"
-                key={index}
-                onClick={() => navigate(`/weather/${search}`)}
-              >
-                {search}
-                <hr />
-              </li>
-            ))}
-          </ul>
+    <>
+      <div className={`searchParent ${isSearchVisible && "parentActive"}`}>
+        <div className="search">
+          <input
+            type="text"
+            ref={ref}
+            className="searchInput"
+            placeholder="Enter City Name to search"
+            onClick={() => setIsSearchVisible(true)}
+          />
+          <button className="searchIcon" onClick={handleSubmit}>
+            <SearchIcon />
+          </button>
         </div>
-      )}
-    </div>
+        {isSearchVisible && (
+          <div className="recentSearches">
+            <ul>
+              {recentSearches.map((search, index) => (
+                <li
+                  className="searched"
+                  key={index}
+                  onClick={() => navigate(`/weather/${search}/${unit}`)}
+                >
+                  {search}
+                  <hr />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+      <select className="select" ref={ref1} onChange={handleUnitChange}>
+        <option value="metric" className="selectOption">
+          &deg;C
+        </option>
+        <option value="imperial" className="selectOption">
+          F
+        </option>
+      </select>
+    </>
   );
 };
