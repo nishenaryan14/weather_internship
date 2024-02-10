@@ -1,0 +1,18 @@
+.homeTop {
+  background-color: lavender;
+  padding: 40px;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stateSummary {
+  height: max-content;
+  width: 100vw;
+  background-color: #001427;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}

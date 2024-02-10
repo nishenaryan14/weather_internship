@@ -1,0 +1,14 @@
+.graphParent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 90%;
+  padding: 20px;
+  background-color: white;
+}
+.canvas {
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+}

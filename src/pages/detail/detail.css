@@ -1,0 +1,36 @@
+.detailTop {
+  height: 450px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #001427;
+  color: white;
+}
+.stateName {
+  font-size: 44px;
+}
+.detailGraph {
+  height: 400px;
+  width: 450px;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chartParent {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: cornsilk;
+}
+.detailBottom {
+  text-align: center;
+  padding: 30px;
+}
+.canvas {
+  height: 140%;
+  width: 100%;
+}
