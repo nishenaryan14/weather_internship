@@ -71,3 +71,8 @@ li {
   color: grey;
   list-style: none;
 }
+.select {
+  position: absolute;
+  right: -10%;
+  top: 20px;
+}

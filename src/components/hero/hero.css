@@ -23,11 +23,7 @@
   align-items: center;
   gap: 26px;
 }
-.select {
-  position: absolute;
-  right: 30px;
-  top: 50%;
-}
+
 .searchHeading {
   margin-top: 80px;
   font-size: 49px;
