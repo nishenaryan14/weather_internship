@@ -4,7 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import "./detail.css";
 import Chart from "chart.js/auto";
 import { LineGraph } from "../../components/lineGraph/LineGraph";
-const RenderCityGraph = ({ cityData }) => {
+export const RenderCityGraph = ({ cityData }) => {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
 
@@ -22,24 +22,24 @@ const RenderCityGraph = ({ cityData }) => {
     chartInstance.current = new Chart(ctx, {
       type: "bar",
       data: {
-        labels: cityData.map((city) => city.name),
+        labels: cityData?.map((city) => city.name),
         datasets: [
           {
-            label: "temp",
-            data: cityData.map((city) => city.main.temp),
+            label: "Temperature",
+            data: cityData?.map((city) => city.main.temp),
             backgroundColor: "rgba(54, 162, 235, 0.2)",
             borderColor: "rgba(54, 162, 235, 1)",
             borderWidth: 1,
           },
           {
-            label: "humidity",
+            label: "Humidity",
             data: cityData.map((city) => city.main.humidity),
             backgroundColor: "olive",
             borderColor: "rgba(54, 162, 235, 1)",
             borderWidth: 1,
           },
           {
-            label: "windDeg",
+            label: "Wind Degree",
             data: cityData.map((city) => city.wind.deg),
             backgroundColor: "purple",
             borderColor: "rgba(54, 162, 235, 1)",

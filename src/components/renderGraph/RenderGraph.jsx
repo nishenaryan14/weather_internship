@@ -26,13 +26,13 @@ const RenderGraph = ({ stateData }) => {
         datasets: [
           {
             label: name, // Use state name as label
-            data: [main?.temp, main.pressure, main?.temp_max], // Adjust data as needed
+            data: [main?.temp, main?.pressure, main?.temp_max], // Adjust data as needed
             backgroundColor:
-              main.temp > 300
+              main?.temp > 300
                 ? "rgba(255, 99, 132, 0.2)"
                 : "rgba(54, 162, 235, 0.2)", // Adjust color based on temperature
             borderColor:
-              main.temp > 300
+              main?.temp > 300
                 ? "rgba(255, 99, 132, 1)"
                 : "rgba(54, 162, 235, 1)", // Adjust border color based on temperature
             borderWidth: 1,

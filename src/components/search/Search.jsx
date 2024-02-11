@@ -3,17 +3,17 @@ import "./search.css";
 import SearchIcon from "@mui/icons-material/Search";
 import { useNavigate } from "react-router-dom";
 
-export const Search = () => {
+export const Search = ({ recentSearches, setRecentSearches }) => {
   const navigate = useNavigate();
   const ref = useRef();
   const ref1 = useRef();
-  const [recentSearches, setRecentSearches] = useState([]);
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [unit, setUnit] = useState("metric");
   useEffect(() => {
     const storedSearches = localStorage.getItem("recentSearches");
     if (storedSearches) {
       setRecentSearches(JSON.parse(storedSearches));
+      console.log(recentSearches);
     }
 
     document.addEventListener("click", handleClickOutside);

@@ -11,7 +11,7 @@ export const LineGraph = ({ city }) => {
 
   useEffect(() => {
     renderChart();
-  }, []);
+  }, [city]);
 
   const renderChart = () => {
     const ctx = chartRef.current.getContext("2d");

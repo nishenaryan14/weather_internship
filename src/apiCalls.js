@@ -43,3 +43,21 @@ export const fetchWeatherDataForCities = async (stateName) => {
     return [];
   }
 };
+export const fetchWeatherDataForRecentCities = async (state) => {
+  try {
+    if (state) {
+      const promises = state.map((city) => fetchWeatherData(city));
+      const responses = await Promise.all(promises);
+      return responses.filter((data) => data !== null);
+    } else {
+      console.error(`State ${stateName} not found`);
+      return [];
+    }
+  } catch (error) {
+    console.error(
+      `Error fetching weather data for cities of ${stateName}`,
+      error
+    );
+    return [];
+  }
+};
