@@ -1,3 +1,6 @@
+.detailContainer {
+  margin-top: 60px;
+}
 .detailTop {
   height: 450px;
   display: flex;
