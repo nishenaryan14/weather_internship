@@ -4,9 +4,9 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 export default function Result() {
-  const { city } = useParams(); // Only extract city parameter
-  const { unit } = useParams(); // Extract unit parameter as well
-  const [units, setUnits] = useState(unit.split("=")[1]);
+  const { city } = useParams();
+  const { unit } = useParams();
+  const [units, setUnits] = useState(unit?.split("=")[1]);
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -17,12 +17,12 @@ export default function Result() {
 
       try {
         const res = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=${units}`
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=${unit}`
         );
-
+        setUnits(unit);
         setWeatherData(res.data);
         setLoading(false);
-        console.log(units);
+        console.log(unit);
       } catch (error) {
         console.error("Error fetching weather data:", error);
         setError("Failed to fetch weather data. Please try again later.");
