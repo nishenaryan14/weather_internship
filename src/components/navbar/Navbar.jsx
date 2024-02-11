@@ -5,7 +5,7 @@ export const Navbar = () => {
     <nav className="navbar navbar-expand-lg bg-body-tertiary" id="navbar">
       <div className="container-fluid">
         <Link className="navbar-brand" to="s" smooth={true} duration={500}>
-          Navbar
+          GoWeather
         </Link>
         <button
           className="navbar-toggler"
