@@ -1,6 +1,7 @@
 .homeTop {
   background-color: lavender;
   padding: 40px;
+  margin-top: 49px;
   height: max-content;
   display: flex;
   justify-content: center;

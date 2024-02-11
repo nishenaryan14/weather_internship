@@ -31,7 +31,7 @@ export default function Result() {
     };
 
     fetchWeatherData();
-  }, [city, unit]); // Make sure to include unit in the dependency array
+  }, [city, unit]);
 
   if (loading) {
     return <div className="resultContainer">Loading...</div>;
@@ -44,16 +44,28 @@ export default function Result() {
   return (
     <div className="resultContainer">
       {weatherData && (
-        <>
+        <div className="result">
           <h2>{weatherData.name}</h2>
           <p>
-            Temperature: {weatherData.main.temp}{" "}
+            Temperature:{" "}
+            <span className="weatherResult">{weatherData.main.temp}</span>{" "}
             <span>{units === "metric" ? "°C" : "F"}</span>
           </p>
-          <p>Weather: {weatherData.weather[0].description}</p>
-          <p>Humidity: {weatherData.main.humidity}%</p>
-          <p>Wind Speed: {weatherData.wind.speed} m/s</p>
-        </>
+          <p>
+            Weather:{" "}
+            <span className="weatherResult">
+              {weatherData.weather[0].description}
+            </span>
+          </p>
+          <p>
+            Humidity:{" "}
+            <span className="weatherResult">{weatherData.main.humidity}%</span>
+          </p>
+          <p>
+            Wind Speed:{" "}
+            <span className="weatherResult">{weatherData.wind.speed} m/s</span>
+          </p>
+        </div>
       )}
     </div>
   );

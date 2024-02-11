@@ -1,0 +1,27 @@
+.resultContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: cornflowerblue;
+}
+
+.result {
+  border-radius: 9px;
+  height: 300px;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  background-color: white;
+}
+.result h2 {
+  margin-bottom: 35px;
+}
+.result p {
+  text-align: center;
+}
+.weatherResult {
+  color: rgb(242, 112, 12);
+}
