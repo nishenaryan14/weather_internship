@@ -25,7 +25,7 @@ const Home = () => {
       </section>
       <div className="recentSearchesGraph" id="recents">
         <p className="heading">Recent Searches</p>
-        {recentSearches && <RenderCityGraph cityData={data} />}
+        {recentSearches.length !== 0 && <RenderCityGraph cityData={data} />}
       </div>
       <section className="stateSummary" id="state-summary">
         <Summary />
